@@ -1,0 +1,1 @@
+// conectar com o db /config.. usando sequelize
