@@ -2,13 +2,13 @@ const express = require('express');
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 var path = require('path');
+
+dotenv.config()
 
 const app = express();
 const port = process.env.PORT || 3000;
-
-dotenv.config()
 
 // Render engine
 app.engine('.html', require('ejs').__express);
