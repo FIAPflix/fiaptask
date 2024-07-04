@@ -37,7 +37,7 @@ router.post('/addnewproject', async (req, res) => {
       // Success response
       res.status(201).json({ message: 'Projeto adicionado com sucesso.', project_id });
     } catch (error) {
-      console.error('alha ao adicionar projeto:', error);
+      console.error('Falha ao adicionar projeto:', error);
       // Error response
       res.status(500).json({ error: 'Falha ao adicionar projeto.' });
     }

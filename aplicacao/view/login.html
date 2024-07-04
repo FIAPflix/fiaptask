@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm" action="/authUser" method="post">
+        <label for="emailLogin">Email:</label><br>
+        <input type="email" id="emailLogin" name="email" required><br><br>
+        <label for="passwordLogin">Password:</label><br>
+        <input type="password" id="passwordLogin" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <h2>Create New User</h2>
+    <form id="userForm" action="/authNewUser" method="post">
+        <label for="emailCreate">Email:</label><br>
+        <input type="email" id="emailCreate" name="email" required><br><br>
+        <label for="passwordCreate">Password:</label><br>
+        <input type="password" id="passwordCreate" name="password" required><br><br>
+        <input type="submit" value="Create">
+    </form>
+</body>
+</html>

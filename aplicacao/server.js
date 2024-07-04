@@ -1,6 +1,6 @@
 const express = require('express');
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
+//const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 var path = require('path');
@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 
 // Render engine
 app.engine('.html', require('ejs').__express);
-app.use(express.static(path.join(__dirname, 'view')));
+app.set('views', path.join(__dirname, 'view'));
 app.set('view engine', 'html');
 
 // Initialize Firebase Admin SDK
@@ -22,7 +22,8 @@ initializeApp({
 });
 
 // Middleware
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
 
 // Middleware to verify Firebase ID token
 // const authenticateUser = async (req, res, next) => {
@@ -40,6 +41,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use(require('./routes/home'));
+app.use(require('./routes/authRoute'));
 app.use(require('./routes/databaseRoute'));
 app.use((req, res) => {
   res.status(404).send('<h1>Página não encontrada</h1>');
