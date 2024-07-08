@@ -1,6 +1,5 @@
 const express = require('express');
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-//const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
+const firebaseAdmin = require('firebase-admin');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 var path = require('path');
@@ -17,27 +16,12 @@ app.set('view engine', 'html');
 
 // Initialize Firebase Admin SDK
 const serviceAccount = require('./fiaptask-ba6e8f79dec4.json'); // Replace with your service account key file path
-initializeApp({
-  credential: cert(serviceAccount)
+firebaseAdmin.initializeApp({
+  credential: firebaseAdmin.credential.cert(serviceAccount)
 });
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(bodyParser.json());
-
-// Middleware to verify Firebase ID token
-// const authenticateUser = async (req, res, next) => {
-//   const idToken = req.headers.authorization;
-
-//   try {
-//     const decodedToken = await admin.auth().verifyIdToken(idToken);
-//     req.user = decodedToken;
-//     next();
-//   } catch (error) {
-//     console.error('Error verifying Firebase ID token:', error);
-//     res.status(403).json({ error: 'Unauthorized' });
-//   }
-// };
 
 // Routes
 app.use(require('./routes/home'));
