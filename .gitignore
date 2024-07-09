@@ -1,0 +1,318 @@
+# Node.js
+node_modules/
+
+# Arquivos de compilação
+dist/
+build/
+out/
+
+# Arquivos de configuração
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# Arquivos de log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos temporários
+*.log
+*.swp
+.DS_Store
+
+# Dependências específicas do projeto
+/.pnp
+.pnp.js
+
+# Visual Studio Code
+.vscode/
+
+# IDEs e editores
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Pacotes NuGet
+*.nupkg
+
+# Arquivos de compilação .NET
+*.dll
+*.exe
+*.pdb
+*.dll.config
+
+# Arquivos de compilação TypeScript
+*.tsbuildinfo
+
+# Cache do npm
+.npm/
+
+# Cache do yarn
+.yarn/
+
+# Cache do ESLint
+.eslintcache
+
+# Cache do Parcel
+.cache/
+
+# Cache do Jest
+.jest/
+
+# Cache do Prettier
+.prettier/
+
+# Cache do Babel
+.babel-cache/
+
+# Cache do Next.js
+.next/
+
+# Cache do Cypress
+.cypress/
+
+# Cache do Storybook
+.storybook/
+
+# Cache do Grunt
+.grunt/
+
+# Cache do Gulp
+.gulp/
+
+# Cache do Hugo
+.resources/
+
+# Cache do Jest
+.jest/
+
+# Cache do Parcel
+.cache/
+
+# Cache do Yarn
+.yarn/
+
+# Cache do ESLint
+.eslintcache
+
+# Cache do Prettier
+.prettier/
+
+# Cache do Babel
+.babel-cache/
+
+# Cache do Next.js
+.next/
+
+# Cache do Cypress
+.cypress/
+
+# Cache do Storybook
+.storybook/
+
+# Cache do Grunt
+.grunt/
+
+# Cache do Gulp
+.gulp/
+
+# Cache do Hugo
+.resources/
+
+# Cache do Jest
+.jest/
+
+# Cache do Parcel
+.cache/
+
+# Cache do Yarn
+.yarn/
+
+# Cache do ESLint
+.eslintcache
+
+# Cache do Prettier
+.prettier/
+
+# Cache do Babel
+.babel-cache/
+
+# Cache do Next.js
+.next/
+
+# Cache do Cypress
+.cypress/
+
+# Cache do Storybook
+.storybook/
+
+# Cache do Grunt
+.grunt/
+
+# Cache do Gulp
+.gulp/
+
+# Cache do Hugo
+.resources/
+
+# Cache do Jest
+.jest/
+
+# Cache do Parcel
+.cache/
+
+# Cache do Yarn
+.yarn/
+
+# Cache do ESLint
+.eslintcache
+
+# Cache do Prettier
+.prettier/
+
+# Cache do Babel
+.babel-cache/
+
+# Cache do Next.js
+.next/
+
+# Cache do Cypress
+.cypress/
+
+# Cache do Storybook
+.storybook/
+
+# Cache do Grunt
+.grunt/
+
+# Cache do Gulp
+.gulp/
+
+# Cache do Hugo
+.resources/
+
+# Cache do Jest
+.jest/
+
+# Cache do Parcel
+.cache/
+
+# Cache do Yarn
+.yarn/
+
+# Cache do ESLint
+.eslintcache
+
+# Cache do Prettier
+.prettier/
+
+# Cache do Babel
+.babel-cache/
+
+# Cache do Next.js
+.next/
+
+# Cache do Cypress
+.cypress/
+
+# Cache do Storybook
+.storybook/
+
+# Cache do Grunt
+.grunt/
+
+# Cache do Gulp
+.gulp/
+
+# Cache do Hugo
+.resources/
+
+# Cache do Jest
+.jest/
+
+# Cache do Parcel
+.cache/
+
+# Cache do Yarn
+.yarn/
+
+# Cache do ESLint
+.eslintcache
+
+# Cache do Prettier
+.prettier/
+
+# Cache do Babel
+.babel-cache/
+
+# Cache do Next.js
+.next/
+
+# Cache do Cypress
+.cypress/
+
+# Cache do Storybook
+.storybook/
+
+# Cache do Grunt
+.grunt/
+
+# Cache do Gulp
+.gulp/
+
+# Cache do Hugo
+.resources/
+
+# Cache do Jest
+.jest/
+
+# Cache do Parcel
+.cache/
+
+# Cache do Yarn
+.yarn/
+
+# Cache do ESLint
+.eslintcache
+
+# Cache do Prettier
+.prettier/
+
+# Cache do Babel
+.babel-cache/
+
+# Cache do Next.js
+.next/
+
+# Cache do Cypress
+.cypress/
+
+# Cache do Storybook
+.storybook/
+
+# Cache do Grunt
+.grunt/
+
+# Cache do Gulp
+.gulp/
+
+# Cache do Hugo
+.resources/
+
+# Cache do Jest
+.jest/
+
+# Cache do Parcel
+.cache/
+
+# Cache do Yarn
+.yarn/
+
+# Cache do ESL
