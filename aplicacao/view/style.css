@@ -1,76 +1,90 @@
-/*geral*/
-#body{
-    background: color #e6e6e6;;
-}
-.cabecalho{
+body {
     display: flex;
-    justify-items: self-end;
-
-}
-footer{
-    text-align: center;
-}
-/* index*/
-#h1-index{
-    text-align: center;
-    align-items: center;
-
-}
-#h2-index{
-    text-align: center;
-    align-items: center;
-}
-.login{
-    padding:100px;
-    
-}
-.another-email{
-    align-items: center;
-    margin: 50px;
-    gap: 5px;
-}
-.bi-envelope-at{
-    color:black;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-/*Menu Dropdown*/
+.menu-sandwich {
+    flex: 0 0 auto;
+}
+.home-nav {
+    flex: 1 0 auto;
+    text-align:left;
+    margin-top: 80px;
+    padding: 100px;
+}
+.navbar {
+    background-color: #343a40;
+}
+.navbar-brand, .nav-link, .dropdown-toggle {
+    color: #ffffff !important;
+}
 .nav-item{
-    list-style-type:none !important;
-    margin-top: none !important; 
+    list-style: none;
 }
-.nav-dropdown {
-  color:black !important; 
-
+.dropdown-menu a{
+    list-style: none !important;
+    text-decoration: none;
+    color: #000;
 }
-
-/*Menu Sandwich*/
-.offcanvas{
-    background-color: #2F323F;
-    color:#E6E6E6;
-    align-items: center;
-}
-.link{
-    color:#E6E6E6;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-    margin-top: 5px;
-
-}
-/*Pagina inicial de navegação*/
-.home-nav{
-    padding: 200px;
-}
-.containers-home{
-    list-style-type:none !important;
-    padding: 50px;
+.containers-home {
+    list-style: none;
+    padding: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
 }
-.container-block{
-    
-    padding: 80px;
-    background-color: orange;
+.container-block {
+    background-color: #f0ad4e;
+    padding: 20px;
     border-radius: 10px;
+    flex: 1 0 auto;
+    text-align: center;
+}
+.container-block a {
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+footer {
+    flex: 0 0 auto;
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/*novaTask*/
+.task-form {
+    flex: 1 0 auto;
+    margin-top: 80px;
+    padding: 20px;
+}
+.form-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/*consultaTask*/
+.task-management {
+    flex: 1 0 auto;
+    margin-top: 80px;
+    padding: 100px;
+}
+.table-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+.table thead th {
+    border-bottom: 2px solid #dee2e6;
+}
+.table tbody td {
+    vertical-align: middle;
+}
+.button-submit-delete .button-submit-edit{
+    color:none !important;
+    background-color: none !important;
 }
