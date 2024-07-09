@@ -3,9 +3,22 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
-
+/*Login*/
+.card {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  #google-signin {
+    margin-bottom: 1rem;
+  }
+/*HOme*/
 .menu-sandwich {
     flex: 0 0 auto;
+    background-color: #343a40 !important;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 10px;
 }
 .home-nav {
     flex: 1 0 auto;
@@ -16,12 +29,14 @@ body {
 .navbar {
     background-color: #343a40;
 }
+
 .navbar-brand, .nav-link, .dropdown-toggle {
     color: #ffffff !important;
 }
 .nav-item{
     list-style: none;
 }
+
 .dropdown-menu a{
     list-style: none !important;
     text-decoration: none;
