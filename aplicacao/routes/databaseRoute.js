@@ -6,7 +6,7 @@ const db = getFirestore();
 
 // Route to add new project
 router.post('/addnewproject', async (req, res) => {
-    const { project_id, name, description, members } = req.body;
+    const { project_id, name, description, members,created_by } = req.body;
   
     try {
       // Create a new project document
@@ -14,7 +14,8 @@ router.post('/addnewproject', async (req, res) => {
       await projectRef.set({
         name,
         description,
-        members
+        members,
+        created_by
       });
       console.log(`Added project with ID: ${project_id}`);
   
@@ -74,24 +75,26 @@ router.post('/addnewuser', async (req, res) => {
 
 // Route to add a new task
 router.post('/addnewtask', async (req, res) => {
-  const { task_id, title, description, dueDate, assignedTo } = req.body;
+  const { taskid, title, description, dueDate, priority, workHours, assignedTo } = req.body;
 
   // Convert dueDate string to Firestore Timestamp
   const dueDateTimestamp = Timestamp.fromDate(new Date(dueDate));
 
   try {
     // Create a new task document
-    const taskRef = db.collection('tasks').doc(task_id);
+    const taskRef = db.collection('tasks').doc(taskid);
     await taskRef.set({
       title,
       description,
       dueDate: dueDateTimestamp,
+      priority,
+      workHours,
       assignedTo
     });
-    console.log(`Added task with ID: ${task_id}`);
+    console.log(`Added task with ID: ${taskid}`);
 
     // Success response
-    res.status(201).json({ message: 'Tafera adicionada com sucesso.', task_id });
+    res.redirect('/consultaTarefa');
   } catch (error) {
     console.error('Erro ao adicionar tarefa:', error);
     // Error response
