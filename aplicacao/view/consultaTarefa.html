@@ -27,7 +27,7 @@
                                 <a class="nav-link" href="home.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Minhas Tarefas</a>
+                                <a class="nav-link" href="perfil.html">Meu Perfil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="consultaTime.html">Times</a>
@@ -50,19 +50,19 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill me-2" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                             </svg>
-                            <a href="#">Colaborador</a>
+                            <a href="novoColaborador.html">Colaborador</a>
                         </li>
                         <li class="dropdown-item">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square me-2" viewBox="0 0 16 16">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                             </svg>
-                            <a href="#">Tarefa</a>
+                            <a href="novaTarefa.html">Tarefa</a>
                         </li>
                         <li class="dropdown-item">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid me-2" viewBox="0 0 16 16">
                                 <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
                             </svg>
-                            <a href="#">Time</a>
+                            <a href="novoTime.html">Time</a>
                         </li>
                     </ul>
                 </li>
@@ -72,65 +72,68 @@
     <!--Coloquei dados chumbados, mas nessa etapa, deve ter um código para carregar dinamicamente os dados do banco de dados. Talves um JS com "um evento de escuta"-->
     <section class="task-management container mt-5">
         <h5 class="text-left">Gestão de Tarefas</h5>
-        <div class="table-container mt-4 mx-auto">
-            <table class="table">
+        <div class="table-container mt-5 mx-auto">
+            <table class="table ">
                 <thead>
                     <tr>
                         <th scope="col">Tarefa</th>
                         <th scope="col">Descrição</th>
                         <th scope="col">Prazo</th>
                         <th scope="col">Prioridade</th>
+                        <th scope="col">Time</th>
                         <th scope="col">Tempo Estimado</th>
                         <th scope="col">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Capturar imagens</td>
-                        <td>Capturar imagens de Baleias azuis</td>
+                        <td>Telas de Navegação</td>
+                        <td>Desenvolver backend telas de navegação</td>
                         <td>18/07/2024</td>
                         <td>Alta</td>
-                        <td>120 horas</td>
+                        <td>Backend</td>
+                        <td>10 horas</td>
                         <td>
-                            <button type="submit" class="button-submit-edit">
-                                <a href="#" class="btn btn-sm btn-outline-primary">
+                            <a href="atualizacaoTarefa.html" >
+                                <button type="submit" class="btn btn-sm btn-outline-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                     </svg>
-                                </a>
-                            </button>
-                            <button type="submit" class="button-submit-delete">
-                                <a href="#" class="btn btn-sm btn-outline-danger">
+                                </button>
+                            </a>
+                            <a href="#" >
+                                <button type="submit" class="btn btn-sm btn-outline-danger" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
                                         <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-                                      </svg>
-                                </a>
-                            </button>
+                                    </svg>
+                                </button>
+                            </a>
                         </td>
                     </tr>
                     <tr>
-                        <td>Editar imagens</td>
-                        <td>Editar imagens de Baleias azuis</td>
-                        <td>29/07/2024</td>
-                        <td>Média</td>
-                        <td>48 horas</td>
+                        <td>Telas de Navegação</td>
+                        <td>Desenvolver Frontend telas de navegação</td>
+                        <td>18/07/2024</td>
+                        <td>Alta</td>
+                        <td>Frontend</td>
+                        <td>10 horas</td>
                         <td>
-                            <button type="submit" class="button-submit-edit">
-                                <a href="#" class="btn btn-sm btn-outline-primary">
+                            <a href="atualizacaoTarefa.html" >
+                                <button type="submit" class="btn btn-sm btn-outline-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                     </svg>
-                                </a>
-                            </button>
-                            <button type="submit" class="button-submit-delete">
-                                <a href="#" class="btn btn-sm btn-outline-danger" >
+                                </button>
+                            </a>
+                            <a href="#" >
+                                <button type="submit" class="btn btn-sm btn-outline-danger" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
                                         <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-                                      </svg>
-                                </a>
-                            </button>
+                                    </svg>
+                                </button>
+                            </a>
                         </td>
                     </tr>
                 </tbody>
