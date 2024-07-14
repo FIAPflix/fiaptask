@@ -1,5 +1,5 @@
 const express = require('express');
-const firebaseAdmin = require('firebase-admin');
+const { initializeApp } = require('firebase/app');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 var path = require('path');
@@ -15,13 +15,20 @@ app.set('views', path.join(__dirname, 'view'));
 app.set('view engine', 'html');
 
 // Initialize Firebase Admin SDK
-const serviceAccount = require('./fiaptask-ba6e8f79dec4.json'); // Replace with your service account key file path
-firebaseAdmin.initializeApp({
-  credential: firebaseAdmin.credential.cert(serviceAccount)
-});
+const firebaseConfig = {
+  apiKey: process.env.FirebaseAPIKey,
+  authDomain: "fiaptask.firebaseapp.com",
+  projectId: "fiaptask",
+  storageBucket: "fiaptask.appspot.com",
+  messagingSenderId: "291675412470",
+  appId: process.env.FirebaseAppID,
+  measurementId: "G-77QB0RV8LF"
+};
+initializeApp(firebaseConfig);
 
-// Middleware
+// Bodyparser
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Routes
 app.use(require('./routes/home'));
