@@ -25,4 +25,9 @@ router.get('/consultaTarefa', (req, res) => {
     res.render('consultaTarefa');
 });
 
+// Delete after test
+router.get('/teste', (req, res) => {
+    res.render('teste');
+});
+
 module.exports = router;

@@ -26,6 +26,9 @@ const firebaseConfig = {
 };
 initializeApp(firebaseConfig);
 
+// Middleware
+app.use(require('./middleware/sessionMiddleware'));
+
 // Bodyparser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -33,6 +36,7 @@ app.use(express.json());
 // Routes
 app.use(require('./routes/home'));
 app.use(require('./routes/authRoute'));
+app.use(require('./routes/protectedRoute'));
 app.use(require('./routes/databaseRoute'));
 app.use((req, res) => {
   res.status(404).send('<h1>Página não encontrada</h1>');

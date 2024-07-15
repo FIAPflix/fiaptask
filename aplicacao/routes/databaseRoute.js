@@ -1,7 +1,7 @@
 const express = require('express');
 const { getApp } = require('firebase/app');
 const { update } = require('firebase/database');
-const { getFirestore, Timestamp, doc, setDoc, getDoc, collection, getDocs, updateDoc, arrayUnion } = require('firebase/firestore');
+const { getFirestore, Timestamp, doc, setDoc, getDoc, collection, getDocs, updateDoc, arrayUnion, query, where } = require('firebase/firestore');
 
 const router = express.Router();
 const firebase = getApp();
@@ -49,7 +49,7 @@ router.post('/addnewuser', async (req, res) => {
     // Check if user already exists
     const userSnap = await getDoc(doc(db, 'users', userid));
 
-    if (userSnap.exists()) {
+    if (userSnap.exists) {
       return res.status(400).json({ error: 'Usuário já cadastrado.' });
     }
 
@@ -75,6 +75,7 @@ router.post('/addnewtask', async (req, res) => {
   const { taskid, title, description, dueDate, priority, workHours, assignedTo } = req.body;
   ;  // Convert dueDate string to Firestore Timestamp
   const dueDateTimestamp = Timestamp.fromDate(new Date(dueDate));
+  const user = req.session.userInfo;
 
   try {
     const taskRef = await setDoc(doc(db, 'tasks', taskid), {
@@ -83,7 +84,8 @@ router.post('/addnewtask', async (req, res) => {
       dueDate: dueDateTimestamp,
       priority: priority,
       workHours: workHours,
-      assignedTo: assignedTo
+      assignedTo: assignedTo,
+      createdBy: user.email
     });
 
     console.log('Tarefa adicionada com ID: ', taskid)
@@ -97,7 +99,8 @@ router.post('/addnewtask', async (req, res) => {
 // Router to read all tasks
 router.get('/displaytasks', async (req, res) => {
   try {
-    const tasksSnapshot = await getDocs(collection(db, 'tasks'));
+    const user = req.session.userInfo;
+    const tasksSnapshot = await getDocs(query(collection(db, 'tasks'), where('createdBy', '==', user.email)));
     const tasks = [];
 
     tasksSnapshot.forEach(doc => {
