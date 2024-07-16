@@ -26,9 +26,8 @@ router.post('/authUser', async (req, res) => {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      // req.session.firebaseToken = user.accessToken;
       req.session.userInfo = user;
-      res.status(200).redirect('/dashboard');
+      res.status(200).redirect('/home');
     })
     .catch((error) => {
       const errorCode = error.code; // auth/invalid-credential
