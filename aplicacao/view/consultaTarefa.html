@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,18 @@
     <link rel="stylesheet" href="style.css">
     <title>Gestão de Tarefas</title>
 </head>
+
 <body>
     <section class="menu-sandwich">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand ms-3" href="#">FIAP Tasks</a>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">FIAP Tasks</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -24,122 +28,179 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="home.html">Home</a>
+                                <a class="nav-link" href="home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Minhas Tarefas</a>
+                                <a class="nav-link" href="perfil">Meu Perfil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="consultaTime.html">Times</a>
+                                <a class="nav-link" href="consultaTime">Times</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="consultaTarefa.html">Tarefas</a>
+                                <a class="nav-link" href="consultaTarefa">Tarefas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="consultaColaborador.html">Colaboradores</a>
+                                <a class="nav-link" href="consultaColaborador">Colaboradores</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <li class="nav-item dropdown ms-auto">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         + Novo
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li class="dropdown-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill me-2" viewBox="0 0 16 16">
-                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person-fill me-2" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                             </svg>
-                            <a href="#">Colaborador</a>
+                            <a href="novoColaborador.html">Colaborador</a>
                         </li>
                         <li class="dropdown-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square me-2" viewBox="0 0 16 16">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-pencil-square me-2" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                             </svg>
-                            <a href="#">Tarefa</a>
+                            <a href="novaTarefa.html">Tarefa</a>
                         </li>
                         <li class="dropdown-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid me-2" viewBox="0 0 16 16">
-                                <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-grid me-2" viewBox="0 0 16 16">
+                                <path
+                                    d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z" />
                             </svg>
-                            <a href="#">Time</a>
+                            <a href="novoTime.html">Time</a>
                         </li>
                     </ul>
                 </li>
             </div>
         </nav>
     </section>
-    <!--Coloquei dados chumbados, mas nessa etapa, deve ter um código para carregar dinamicamente os dados do banco de dados. Talves um JS com "um evento de escuta"-->
+
     <section class="task-management container mt-5">
         <h5 class="text-left">Gestão de Tarefas</h5>
-        <div class="table-container mt-4 mx-auto">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Tarefa</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Prazo</th>
-                        <th scope="col">Prioridade</th>
-                        <th scope="col">Tempo Estimado</th>
-                        <th scope="col">Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Capturar imagens</td>
-                        <td>Capturar imagens de Baleias azuis</td>
-                        <td>18/07/2024</td>
-                        <td>Alta</td>
-                        <td>120 horas</td>
-                        <td>
-                            <button type="submit" class="button-submit-edit">
-                                <a href="#" class="btn btn-sm btn-outline-primary">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                    </svg>
-                                </a>
-                            </button>
-                            <button type="submit" class="button-submit-delete">
-                                <a href="#" class="btn btn-sm btn-outline-danger">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-                                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-                                      </svg>
-                                </a>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Editar imagens</td>
-                        <td>Editar imagens de Baleias azuis</td>
-                        <td>29/07/2024</td>
-                        <td>Média</td>
-                        <td>48 horas</td>
-                        <td>
-                            <button type="submit" class="button-submit-edit">
-                                <a href="#" class="btn btn-sm btn-outline-primary">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                    </svg>
-                                </a>
-                            </button>
-                            <button type="submit" class="button-submit-delete">
-                                <a href="#" class="btn btn-sm btn-outline-danger" >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-                                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-                                      </svg>
-                                </a>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div id="taskList" class="table-container mt-5 mx-auto">
+            <script>
+                async function fetchTasks() {
+                    try {
+                        const response = await fetch('/displaytasks');
+                        const tasks = await response.json();
+
+                        // Call function to display tasks in HTML
+                        displayTasks(tasks);
+                    } catch (error) {
+                        console.error('Error fetching tasks:', error);
+                        // Display error message to user
+                        const taskListDiv = document.getElementById('taskList');
+                        taskListDiv.innerHTML = '<p>Error fetching tasks.</p>';
+                    }
+                }
+
+                // Function to display tasks in HTML
+                function displayTasks(tasks) {
+                    const taskListDiv = document.getElementById('taskList');
+                    if (tasks.length === 0) {
+                        taskListDiv.innerHTML = '<p>Nenhuma tarefa cadastrada.</p>';
+                        return;
+                    }
+
+                    const table = document.createElement('table');
+                    table.classList.add('table'); // Add Bootstrap table class
+
+                    const headers = ['ID', 'Título', 'Descrição', 'Prazo', 'Prioridade', 'Tempo Estimado', 'Responsável', 'Ação'];
+                    const headerRow = table.createTHead().insertRow();
+
+                    // Create table headers
+                    headers.forEach(headerText => {
+                        const th = document.createElement('th');
+                        th.textContent = headerText;
+                        headerRow.appendChild(th);
+                    });
+
+                    // Add rows with task data
+                    tasks.forEach(task => {
+                        const row = table.insertRow();
+                        Object.values(task).forEach(value => {
+                            const cell = row.insertCell();
+                            cell.textContent = value;
+                        });
+
+                        // Create action buttons
+                        const actionCell = row.insertCell();
+                        const editButton = document.createElement('button');
+                        editButton.type = 'button';
+                        editButton.classList.add('btn', 'btn-sm', 'btn-outline-primary', 'me-1');
+                        editButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/></svg>';
+                        editButton.addEventListener('click', async () => {
+                            try {
+                                const taskId = task.taskid;
+                                window.location.href = `/atualizacaoTarefa?taskId=${taskId}`;
+                            } catch (error) {
+                                console.error('Error deleting task:', error);
+                                // Display error message to user if necessary
+                                alert('Failed to delete task. Please try again.');
+                            }
+                        });
+
+                        const deleteButton = document.createElement('button');
+                        deleteButton.type = 'button';
+                        deleteButton.classList.add('btn', 'btn-sm', 'btn-outline-danger');
+                        deleteButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/><path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/></svg>';
+                        deleteButton.addEventListener('click', async () => {
+                            try {
+                                // Assuming task ID is stored in task.id (adjust according to your task structure)
+                                const taskId = task.taskid;
+                                console.log(taskId);
+
+                                const response = await fetch('/deletetask', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({ taskId }),
+                                });
+
+                                if (!response.ok) {
+                                    throw new Error('Failed to delete task');
+                                }
+
+                                // Refresh tasks after deletion
+                                fetchTasks();
+                            } catch (error) {
+                                console.error('Error deleting task:', error);
+                                // Display error message to user if necessary
+                                alert('Failed to delete task. Please try again.');
+                            }
+                        });
+
+                        actionCell.appendChild(editButton);
+                        actionCell.appendChild(deleteButton);
+                    });
+
+                    // Append table to taskListDiv
+                    taskListDiv.innerHTML = ''; // Clear previous content
+                    taskListDiv.appendChild(table);
+                }
+
+                // Call fetchTasks when page loads
+                document.addEventListener('DOMContentLoaded', () => {
+                    fetchTasks();
+                });  
+            </script>
         </div>
     </section>
+
     <footer class="d-lg-flex justify-content-around">
-        <p>2024 - Projeto sem fins lucrativos | Desenvolvido por <a href="http://www.linkedin.com/in/bruna-baria/">Bruna Baria</a> e <a href="http://www.linkedin.com/in/ariel-fortes/">Ariel Fortes</a> para conclusão de curso.</p>
+        <p>2024 - Projeto sem fins lucrativos | Desenvolvido por <a href="http://www.linkedin.com/in/bruna-baria/">Bruna
+                Baria</a> e <a href="http://www.linkedin.com/in/ariel-fortes/">Ariel Fortes</a> para conclusão de curso.
+        </p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

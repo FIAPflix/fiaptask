@@ -28,6 +28,7 @@ initializeApp(firebaseConfig);
 
 // Middleware
 app.use(require('./middleware/sessionMiddleware'));
+app.use(express.static('view'));
 
 // Bodyparser
 app.use(bodyParser.urlencoded({ extended: true }));
