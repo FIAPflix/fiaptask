@@ -139,9 +139,9 @@
                                 const taskId = task.taskid;
                                 window.location.href = `/atualizacaoTarefa?taskId=${taskId}`;
                             } catch (error) {
-                                console.error('Error deleting task:', error);
+                                console.error('Error editing task:', error);
                                 // Display error message to user if necessary
-                                alert('Failed to delete task. Please try again.');
+                                alert('Failed to edit task. Please try again.');
                             }
                         });
 

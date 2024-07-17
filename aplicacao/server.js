@@ -35,7 +35,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
-app.use(require('./routes/home'));
 app.use(require('./routes/authRoute'));
 app.use(require('./routes/protectedRoute'));
 app.use(require('./routes/databaseRoute'));

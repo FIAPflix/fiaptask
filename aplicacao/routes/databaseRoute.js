@@ -9,38 +9,38 @@ const firebase = getApp();
 const db = getFirestore(firebase);
 
 // Route to add new project
-router.post('/addnewproject', async (req, res) => {
-  const { project_id, name, description, members } = req.body;
+// router.post('/addnewproject', async (req, res) => {
+//   const { project_id, name, description, members } = req.body;
 
-  try {
-    // Create a new project document
-    const projectRef = await setDoc(doc(db, 'projects', project_id), {
-      name,
-      description,
-      members,
-    });
-    console.log('Projeto adicionado com ID: ', project_id);
+//   try {
+//     // Create a new project document
+//     const projectRef = await setDoc(doc(db, 'projects', project_id), {
+//       name,
+//       description,
+//       members,
+//     });
+//     console.log('Projeto adicionado com ID: ', project_id);
 
-    // Update each user document to include the new project in their projects array
-    members.forEach(member => {
-      // const userRef = db.collection('users').doc(member.user_id);
-      const userRef = updateDoc(doc(db, 'users', member.user_id), {
-        projects: arrayUnion({
-          projects: project_id,
-          role: member.role  // Assuming member.role is defined
-        })
-      })
-    });
+//     // Update each user document to include the new project in their projects array
+//     members.forEach(member => {
+//       // const userRef = db.collection('users').doc(member.user_id);
+//       const userRef = updateDoc(doc(db, 'users', member.user_id), {
+//         projects: arrayUnion({
+//           projects: project_id,
+//           role: member.role  // Assuming member.role is defined
+//         })
+//       })
+//     });
 
-    console.log('Usuário atualizado com projeto associado.');
+//     console.log('Usuário atualizado com projeto associado.');
 
-    // Success response
-    res.redirect('consultaTarefa');
-  } catch (error) {
-    console.error('Falha ao adicionar projeto:', error);
-    // Error response below
-  }
-});
+//     // Success response
+//     res.redirect('consultaTarefa');
+//   } catch (error) {
+//     console.error('Falha ao adicionar projeto:', error);
+//     // Error response below
+//   }
+// });
 
 // Route to add a new user
 router.post('/addnewuser', async (req, res) => {
@@ -49,27 +49,24 @@ router.post('/addnewuser', async (req, res) => {
 
   try {
     // Check if user already exists
-    const userSnap = await getDoc(doc(db, 'users', email));
+    // const userSnap = await getDoc(doc(db, 'users', email));
 
-    if (userSnap.data()) {
-      return res.status(400).json({ error: 'Usuário já cadastrado.' });
-    }
-    else {
-      // Create a new user document
-      await setDoc(doc(db, 'users', email), {
-        name,
-        email,
-        responsibility,
-        status,
-        assignedTeam,
-        projects: [],  // Initialize with an empty array of projects
-        createdBy: user.email
-      });
-      console.log(`Usuário adicionado com ID: ${email}`);
+    // if (userSnap.data()) {
+    //   return res.status(400).json({ error: 'Usuário já cadastrado.' });
+    // }
+    // else {
+    // Create a new user document
+    await setDoc(doc(db, 'users', email), {
+      name,
+      email,
+      responsibility,
+      status,
+    });
+    console.log(`Usuário adicionado com ID: ${email}`);
 
-      // Success response
-      res.redirect('/consultaColaborador')
-    }
+    // Success response
+    res.redirect('/consultaColaborador')
+    // }
   } catch (error) {
     console.error('Falha ao adicionar usuário:', error);
     // Error response
@@ -80,7 +77,7 @@ router.post('/addnewuser', async (req, res) => {
 router.get('/displayusers', async (req, res) => {
   try {
     const user = req.session.userInfo;
-    const tasksSnapshot = await getDocs(query(collection(db, 'users'), where('createdBy', '==', user.email)));
+    tasksSnapshot = await getDocs(collection(db, 'users'));
     const users = [];
 
     tasksSnapshot.forEach(doc => {
@@ -89,7 +86,7 @@ router.get('/displayusers', async (req, res) => {
         email: doc.id,
         cargo: doc.data().responsibility,
         status: doc.data().status,
-        assignedTeam: doc.data().assignedTeam
+        // assignedTeam: doc.data().assignedTeam
       });
     });
     res.status(200).json(users);
@@ -100,17 +97,20 @@ router.get('/displayusers', async (req, res) => {
 });
 
 // Router to update a user
-router.post('/updateuser', async (req, res) => {
+router.get('/atualizacaoColaborador', async (req, res) => {
   try {
-    const { email } = req.body;
-    console.log(email);
+    const email = req.query.userEmail;
+
     const userSnap = await getDoc(doc(db, 'users', email));
-    res.redirect('atualizacaoColaborador', { userSnap });
+    let userData = userSnap.data();
+
+    // Render atualizacaoColaborador page with taskData passed as data
+    res.render('atualizacaoColaborador', { userData });
   } catch (error) {
-    console.error('Erro ao atualizar colaborador: ', error);
-    res.status(500).json({ error: 'Erro ao atualizar colaborador' });
+    console.error('Error fetching task details:', error);
+    res.status(500).json({ error: 'Failed to fetch user details' });
   }
-})
+});
 
 // Router to delete a user
 router.post('/deleteuser', async (req, res) => {
@@ -125,13 +125,39 @@ router.post('/deleteuser', async (req, res) => {
   }
 })
 
+router.get('/novaTarefa', async (req, res) => {
+  try {
+    const userid = req.session.userInfo; // Retrieve user info from session
+
+    if (userid && userid.email) {
+      // const taskId = req.query.taskId;
+      // Assuming getDoc is a function that retrieves task data from Firestore
+      const usersSnap = await getDocs(query(collection(db, 'users'), where('status', '==', 'Ativo')));
+      const usersList = [];
+
+      usersSnap.forEach(doc => {
+        usersList.push({
+          name: doc.data().name,
+          email:doc.id
+        });
+      });
+
+      return res.status(200).render('novaTarefa', { usersList });
+    } else {
+      return res.status(401).redirect('/');
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' });
+    console.log(error);
+  }
+});
+
 // Route to add a new task
 router.post('/addnewtask', async (req, res) => {
   const { taskid, title, description, dueDate, priority, workHours, assignedTo } = req.body;
-  ;  // Convert dueDate string to Firestore Timestamp
   const dueDateTimestamp = Timestamp.fromDate(new Date(dueDate));
   const user = req.session.userInfo;
- console.log(req.body)
+  console.log(req.body)
   try {
     const taskRef = await setDoc(doc(db, 'tasks', taskid), {
       title: title,
@@ -195,17 +221,25 @@ router.post('/deletetask', async (req, res) => {
 // Router to update a task
 router.get('/atualizacaoTarefa', async (req, res) => {
   try {
-      const taskId = req.query.taskId;
-      // Assuming getDoc is a function that retrieves task data from Firestore
-      const taskSnap = await getDoc(doc(db, 'tasks', taskId));
-      let taskData = taskSnap.data();
-      taskData.id = taskId;
-      console.log(taskData);
-      // Render atualizacaoTarefa page with taskData passed as data
-      res.render('atualizacaoTarefa', { taskData });
+    const taskId = req.query.taskId;
+    // Assuming getDoc is a function that retrieves task data from Firestore
+    const taskSnap = await getDoc(doc(db, 'tasks', taskId));
+    let taskData = taskSnap.data();
+    taskData.id = taskId;
+    
+    const usersSnap = await getDocs(query(collection(db, 'users'), where('status', '==', 'Ativo')));
+    const usersList = [];
+    usersSnap.forEach(doc => {
+      usersList.push({
+        name: doc.data().name,
+        email:doc.id
+      });
+    });
+    // Render atualizacaoTarefa page with taskData passed as data
+    res.render('atualizacaoTarefa', { taskData, usersList });
   } catch (error) {
-      console.error('Error fetching task details:', error);
-      res.status(500).json({ error: 'Failed to fetch task details' });
+    console.error('Error fetching task details:', error);
+    res.status(500).json({ error: 'Failed to fetch task details' });
   }
 });
 
