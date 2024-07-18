@@ -76,4 +76,19 @@ router.get('/novoColaborador', async (req, res) => {
     }
 });
 
+router.get('/consultaTime', async (req, res) => {
+    try {
+        const userid = req.session.userInfo; // Retrieve user info from session
+
+        if (userid && userid.email) {
+            return res.status(200).render('consultaTime');
+        } else {
+            return res.status(401).redirect('/');
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error' });
+        console.log(error);
+    }
+});
+
 module.exports = router;

@@ -138,7 +138,7 @@ router.get('/novaTarefa', async (req, res) => {
       usersSnap.forEach(doc => {
         usersList.push({
           name: doc.data().name,
-          email:doc.id
+          email: doc.id
         });
       });
 
@@ -184,6 +184,8 @@ router.get('/displaytasks', async (req, res) => {
     const tasksSnapshot = await getDocs(query(collection(db, 'tasks'), where('createdBy', '==', user.email)));
     const tasks = [];
 
+    const workHoursMap = new Map();
+
     tasksSnapshot.forEach(doc => {
       const dueDate = doc.data().dueDate.toDate();
       const formattedDueDate = moment(dueDate).format('DD-MM-YYYY');
@@ -198,7 +200,10 @@ router.get('/displaytasks', async (req, res) => {
         assignedTo: doc.data().assignedTo
       });
     });
-    res.status(200).json(tasks);
+
+    const aggregatedWorkHours = aggregateWorkHours(tasks);
+
+    res.status(200).json({ tasks, aggregatedWorkHours });
   } catch (error) {
     console.error('Error fetching tasks:', error);
     res.status(500).json({ error: 'Error fetching tasks' });
@@ -226,13 +231,13 @@ router.get('/atualizacaoTarefa', async (req, res) => {
     const taskSnap = await getDoc(doc(db, 'tasks', taskId));
     let taskData = taskSnap.data();
     taskData.id = taskId;
-    
+
     const usersSnap = await getDocs(query(collection(db, 'users'), where('status', '==', 'Ativo')));
     const usersList = [];
     usersSnap.forEach(doc => {
       usersList.push({
         name: doc.data().name,
-        email:doc.id
+        email: doc.id
       });
     });
     // Render atualizacaoTarefa page with taskData passed as data
@@ -242,5 +247,25 @@ router.get('/atualizacaoTarefa', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch task details' });
   }
 });
+
+function aggregateWorkHours(tasks) {
+  const workHoursMap = new Map();
+  
+  tasks.forEach(task => {
+    const assignedTo = task.assignedTo;
+    const workHours = parseFloat(task.workHours);
+
+    if (workHoursMap.has(assignedTo)) {
+      workHoursMap.set(assignedTo, workHoursMap.get(assignedTo) + workHours);
+    } else {
+      workHoursMap.set(assignedTo, workHours);
+    }
+  });
+
+  // Convert map to array of objects for easier JSON serialization
+  const aggregatedWorkHours = Array.from(workHoursMap, ([assignedTo, totalHours]) => ({ assignedTo, totalHours }));
+
+  return aggregatedWorkHours;
+}
 
 module.exports = router;
