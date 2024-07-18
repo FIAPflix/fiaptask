@@ -31,16 +31,16 @@
                                 <a class="nav-link" href="home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="perfil">Meu Perfil</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="consultaTime">Times</a>
+                                <a class="nav-link" href="consultaTime">Time</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="consultaTarefa">Tarefas</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="consultaColaborador">Colaboradores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logout">Sair</a>
                             </li>
                         </ul>
                     </div>
@@ -56,7 +56,7 @@
                                 class="bi bi-person-fill me-2" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                             </svg>
-                            <a href="novoColaborador.html">Colaborador</a>
+                            <a href="novoColaborador">Colaborador</a>
                         </li>
                         <li class="dropdown-item">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -64,15 +64,7 @@
                                 <path
                                     d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                             </svg>
-                            <a href="novaTarefa.html">Tarefa</a>
-                        </li>
-                        <li class="dropdown-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-grid me-2" viewBox="0 0 16 16">
-                                <path
-                                    d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z" />
-                            </svg>
-                            <a href="novoTime.html">Time</a>
+                            <a href="novaTarefa">Tarefa</a>
                         </li>
                     </ul>
                 </li>
@@ -90,7 +82,7 @@
                         const tasks = await response.json();
 
                         // Call function to display tasks in HTML
-                        displayTasks(tasks);
+                        displayTasks(tasks.tasks);
                     } catch (error) {
                         console.error('Error fetching tasks:', error);
                         // Display error message to user

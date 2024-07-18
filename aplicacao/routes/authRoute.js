@@ -37,8 +37,22 @@ router.post('/authUser', async (req, res) => {
     });
 })
 
-router.post('/logout', async (req, res) => {
-
+router.get('/logout', async (req, res) => {
+  signOut(getAuth()).then(() => {
+    req.session.destroy(error => {
+      if (error) {
+        res.status(400).send('Unable to log out');
+      } else {
+        res.redirect('/');
+      }
+    });
+  }).catch((error) => {
+    console.log(error)
+;  });
 })
+
+router.get('/cadastrar', (req, res) => {
+  res.render('cadastrar');
+});
 
 module.exports = router;
