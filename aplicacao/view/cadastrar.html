@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Cadastrar</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4">
-      <h2 class="card-title text-center">Entrar no FIAP Task</h2>
+      <h2 class="card-title text-center">Cadastro no FIAP Task</h2>
       <hr>
-      <form id="login-form" action="/authUser" method="post">
+      <form id="login-form" action="/authNewUser" method="post">
         <div class="form-group">
           <label for="email">E-mail</label>
           <input type="email" class="form-control" id="email" name="email" placeholder="email@email.com" required>
@@ -21,10 +21,10 @@
           <label for="password">Senha</label>
           <input type="password" class="form-control" id="password" name="password" placeholder="******" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+        <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
       </form>
       <hr>
-      <a href="/cadastrar" class="btn btn-outline-primary btn-block" id="cadastrar">Cadastrar</a>
+      <a href="/" class="btn btn-outline-primary btn-block" id="cadastrar">Voltar</a>
     </div>
   </div>
 
